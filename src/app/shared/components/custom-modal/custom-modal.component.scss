@@ -1,0 +1,157 @@
+.custom-modal {
+  --background: var(--ion-background-color);
+  --border-radius: 12px;
+
+  .modal-header {
+    --background: var(--ion-toolbar-background, var(--ion-background-color));
+    --border-color: var(--ion-border-color);
+
+    .modal-title {
+      h2 {
+        margin: 0 0 0.25rem 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--ion-text-color);
+      }
+
+      .modal-subtitle {
+        margin: 0;
+        font-size: 0.875rem;
+        color: var(--ion-text-color);
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .modal-content {
+    --background: transparent;
+
+    .modal-body {
+      padding: 1rem;
+      min-height: 200px;
+    }
+  }
+
+  .modal-footer {
+    --background: var(--ion-background-color);
+    --border-color: var(--ion-border-color);
+    border-top: 1px solid var(--ion-border-color);
+    padding: 1rem;
+
+    // Style footer content
+    ::ng-deep * {
+      margin: 0;
+    }
+  }
+}
+
+// Size variants
+.modal-small {
+  --width: 300px;
+  --height: auto;
+  --max-width: 90vw;
+  --max-height: 80vh;
+}
+
+.modal-medium {
+  --width: 500px;
+  --height: auto;
+  --max-width: 90vw;
+  --max-height: 85vh;
+}
+
+.modal-large {
+  --width: 800px;
+  --height: auto;
+  --max-width: 95vw;
+  --max-height: 90vh;
+}
+
+.modal-fullscreen {
+  --width: 100vw;
+  --height: 100vh;
+  --border-radius: 0;
+
+  .modal-content {
+    .modal-body {
+      min-height: calc(100vh - 140px); // Account for header and footer
+    }
+  }
+}
+
+// Dark mode adjustments
+[data-theme="dark"] {
+  .custom-modal {
+    .modal-header {
+      --background: var(--ion-toolbar-background);
+    }
+
+    .modal-title {
+      h2 {
+        color: var(--ion-text-color);
+      }
+
+      .modal-subtitle {
+        color: var(--ion-text-color);
+        opacity: 0.7;
+      }
+    }
+
+    .modal-footer {
+      --background: var(--ion-background-color);
+      border-top-color: var(--ion-border-color);
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 576px) {
+  .custom-modal {
+    .modal-content {
+      .modal-body {
+        padding: 0.75rem;
+      }
+    }
+
+    .modal-footer {
+      padding: 0.75rem;
+    }
+  }
+
+  .modal-medium,
+  .modal-large {
+    --width: 95vw;
+    --max-width: 95vw;
+  }
+}
+
+// Animation classes (for future enhancement)
+.modal-enter {
+  animation: modalEnter 0.3s ease-out;
+}
+
+.modal-leave {
+  animation: modalLeave 0.3s ease-in;
+}
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes modalLeave {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9) translateY(-20px);
+  }
+}

@@ -1,0 +1,25 @@
+<ion-header class="modal-header" *ngIf="title">
+  <ion-toolbar>
+    <ion-title>
+      <div class="modal-title">
+        <h2 *ngIf="title">{{ title }}</h2>
+        <p *ngIf="subtitle" class="modal-subtitle">{{ subtitle }}</p>
+      </div>
+    </ion-title>
+    <ion-buttons slot="end" *ngIf="showCloseButton">
+      <ion-button (click)="close()" fill="clear" size="small">
+        <ion-icon name="close" size="small"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="modal-content" [ngClass]="getModalClasses()">
+  <div class="modal-body">
+    <ng-content></ng-content>
+  </div>
+</ion-content>
+
+<ion-footer class="modal-footer" *ngIf="hasFooterContent()">
+  <ng-content select="[modal-footer]"></ng-content>
+</ion-footer>

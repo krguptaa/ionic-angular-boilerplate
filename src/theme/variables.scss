@@ -1,0 +1,409 @@
+// Ionic Boilerplate Theme Variables
+// Comprehensive theme system with light/dark mode support
+
+// ============================================================================
+// COLOR SYSTEM
+// ============================================================================
+
+// Primary Colors
+$primary-color: #3880ff;
+$primary-contrast: #ffffff;
+$primary-shade: #3171e0;
+$primary-tint: #4c8dff;
+
+// Secondary Colors
+$secondary-color: #3dc2ff;
+$secondary-contrast: #ffffff;
+$secondary-shade: #36abe0;
+$secondary-tint: #50c8ff;
+
+// Success Colors
+$success-color: #2dd36f;
+$success-contrast: #ffffff;
+$success-shade: #28ba62;
+$success-tint: #42d77d;
+
+// Warning Colors
+$warning-color: #ffc409;
+$warning-contrast: #000000;
+$warning-shade: #e0ac08;
+$warning-tint: #ffca22;
+
+// Danger Colors
+$danger-color: #eb445a;
+$danger-contrast: #ffffff;
+$danger-shade: #cf3c4f;
+$danger-tint: #ed576b;
+
+// Light Colors
+$light-color: #f4f5f8;
+$light-contrast: #000000;
+$light-shade: #d7d8da;
+$light-tint: #f5f6f9;
+
+// Medium Colors
+$medium-color: #92949c;
+$medium-contrast: #ffffff;
+$medium-shade: #808289;
+$medium-tint: #9d9fa6;
+
+// Dark Colors
+$dark-color: #222428;
+$dark-contrast: #ffffff;
+$dark-shade: #1e2023;
+$dark-tint: #383a3e;
+
+// ============================================================================
+// SEMANTIC COLORS
+// ============================================================================
+
+// Text Colors
+$text-color: #000000;
+$text-color-light: #8c8c8c;
+$text-color-disabled: #cccccc;
+
+// Background Colors
+$background-color: #ffffff;
+$background-color-secondary: #f8f9fa;
+$background-color-tertiary: #e9ecef;
+
+// Border Colors
+$border-color: #e0e0e0;
+$border-color-light: #f0f0f0;
+
+// ============================================================================
+// TYPOGRAPHY SYSTEM
+// ============================================================================
+
+// Font Families
+$font-family-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+$font-family-secondary: Georgia, 'Times New Roman', serif;
+$font-family-mono: 'Courier New', monospace;
+
+// Font Sizes
+$font-size-xs: 0.75rem;   // 12px
+$font-size-sm: 0.875rem;  // 14px
+$font-size-base: 1rem;    // 16px
+$font-size-lg: 1.125rem;  // 18px
+$font-size-xl: 1.25rem;   // 20px
+$font-size-2xl: 1.5rem;   // 24px
+$font-size-3xl: 1.875rem; // 30px
+$font-size-4xl: 2.25rem;  // 36px
+$font-size-5xl: 3rem;     // 48px
+
+// Font Weights
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-extrabold: 800;
+
+// Line Heights
+$line-height-tight: 1.25;
+$line-height-normal: 1.5;
+$line-height-relaxed: 1.625;
+
+// Letter Spacing
+$letter-spacing-tight: -0.025em;
+$letter-spacing-normal: 0;
+$letter-spacing-wide: 0.025em;
+
+// ============================================================================
+// SPACING SYSTEM
+// ============================================================================
+
+$spacing-xs: 0.25rem;   // 4px
+$spacing-sm: 0.5rem;    // 8px
+$spacing-md: 0.75rem;   // 12px
+$spacing-lg: 1rem;      // 16px
+$spacing-xl: 1.25rem;   // 20px
+$spacing-2xl: 1.5rem;   // 24px
+$spacing-3xl: 2rem;     // 32px
+$spacing-4xl: 2.5rem;   // 40px
+$spacing-5xl: 3rem;     // 48px
+$spacing-6xl: 4rem;     // 64px
+
+// ============================================================================
+// BORDER RADIUS SYSTEM
+// ============================================================================
+
+$border-radius-none: 0;
+$border-radius-sm: 0.125rem;   // 2px
+$border-radius-md: 0.375rem;   // 6px
+$border-radius-lg: 0.5rem;     // 8px
+$border-radius-xl: 0.75rem;    // 12px
+$border-radius-2xl: 1rem;      // 16px
+$border-radius-3xl: 1.5rem;    // 24px
+$border-radius-full: 9999px;
+
+// ============================================================================
+// SHADOW SYSTEM
+// ============================================================================
+
+$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+$shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+// ============================================================================
+// BREAKPOINTS (Responsive Design)
+// ============================================================================
+
+$breakpoint-xs: 0;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-2xl: 1400px;
+
+// ============================================================================
+// DARK MODE VARIABLES
+// ============================================================================
+
+// Dark mode color overrides
+[data-theme="dark"] {
+  --ion-color-primary: #4c8dff;
+  --ion-color-primary-rgb: 76, 141, 255;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #4284e6;
+  --ion-color-primary-tint: #5d95ff;
+
+  --ion-color-secondary: #50c8ff;
+  --ion-color-secondary-rgb: 80, 200, 255;
+  --ion-color-secondary-contrast: #ffffff;
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #46b0e6;
+  --ion-color-secondary-tint: #62ceff;
+
+  --ion-color-success: #42d77d;
+  --ion-color-success-rgb: 66, 215, 125;
+  --ion-color-success-contrast: #ffffff;
+  --ion-color-success-contrast-rgb: 255, 255, 255;
+  --ion-color-success-shade: #3ac46e;
+  --ion-color-success-tint: #54dd87;
+
+  --ion-color-warning: #ffca22;
+  --ion-color-warning-rgb: 255, 202, 34;
+  --ion-color-warning-contrast: #000000;
+  --ion-color-warning-contrast-rgb: 0, 0, 0;
+  --ion-color-warning-shade: #e6b31e;
+  --ion-color-warning-tint: #ffd137;
+
+  --ion-color-danger: #ed576b;
+  --ion-color-danger-rgb: 237, 87, 107;
+  --ion-color-danger-contrast: #ffffff;
+  --ion-color-danger-contrast-rgb: 255, 255, 255;
+  --ion-color-danger-shade: #d14f5f;
+  --ion-color-danger-tint: #f0677a;
+
+  --ion-color-light: #383a3e;
+  --ion-color-light-rgb: 56, 58, 62;
+  --ion-color-light-contrast: #ffffff;
+  --ion-color-light-contrast-rgb: 255, 255, 255;
+  --ion-color-light-shade: #323437;
+  --ion-color-light-tint: #484a4e;
+
+  --ion-color-medium: #9d9fa6;
+  --ion-color-medium-rgb: 157, 159, 166;
+  --ion-color-medium-contrast: #ffffff;
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-medium-shade: #8a8c91;
+  --ion-color-medium-tint: #a7a9ae;
+
+  --ion-color-dark: #f4f5f8;
+  --ion-color-dark-rgb: 244, 245, 248;
+  --ion-color-dark-contrast: #000000;
+  --ion-color-dark-contrast-rgb: 0, 0, 0;
+  --ion-color-dark-shade: #d7d8da;
+  --ion-color-dark-tint: #f5f6f9;
+
+  // Background colors for dark mode
+  --ion-background-color: #1e1e1e;
+  --ion-background-color-rgb: 30, 30, 30;
+
+  --ion-text-color: #ffffff;
+  --ion-text-color-rgb: 255, 255, 255;
+
+  --ion-border-color: #383838;
+  --ion-border-color-rgb: 56, 56, 56;
+
+  // Card colors
+  --ion-card-background: #2c2c2c;
+  --ion-card-background-rgb: 44, 44, 44;
+
+  // Item colors
+  --ion-item-background: #2c2c2c;
+  --ion-item-background-rgb: 44, 44, 44;
+
+  // Toolbar colors
+  --ion-toolbar-background: #1e1e1e;
+  --ion-toolbar-background-rgb: 30, 30, 30;
+}
+
+// ============================================================================
+// COMPONENT SPECIFIC VARIABLES
+// ============================================================================
+
+// Button styles
+$button-border-radius: $border-radius-lg;
+$button-padding: $spacing-md $spacing-lg;
+$button-font-weight: $font-weight-medium;
+
+// Input styles
+$input-border-radius: $border-radius-md;
+$input-padding: $spacing-md;
+$input-border-color: $border-color;
+
+// Card styles
+$card-border-radius: $border-radius-lg;
+$card-padding: $spacing-lg;
+$card-shadow: $shadow-md;
+
+// Modal styles
+$modal-border-radius: $border-radius-xl;
+$modal-padding: $spacing-xl;
+
+// Toast styles
+$toast-border-radius: $border-radius-md;
+$toast-padding: $spacing-md $spacing-lg;
+
+// ============================================================================
+// UTILITY CLASSES
+// ============================================================================
+
+// Text utilities
+.text-xs { font-size: $font-size-xs !important; }
+.text-sm { font-size: $font-size-sm !important; }
+.text-base { font-size: $font-size-base !important; }
+.text-lg { font-size: $font-size-lg !important; }
+.text-xl { font-size: $font-size-xl !important; }
+.text-2xl { font-size: $font-size-2xl !important; }
+.text-3xl { font-size: $font-size-3xl !important; }
+
+.text-light { font-weight: $font-weight-light !important; }
+.text-normal { font-weight: $font-weight-normal !important; }
+.text-medium { font-weight: $font-weight-medium !important; }
+.text-semibold { font-weight: $font-weight-semibold !important; }
+.text-bold { font-weight: $font-weight-bold !important; }
+
+// Spacing utilities
+.m-0 { margin: 0 !important; }
+.m-1 { margin: $spacing-xs !important; }
+.m-2 { margin: $spacing-sm !important; }
+.m-3 { margin: $spacing-md !important; }
+.m-4 { margin: $spacing-lg !important; }
+
+.p-0 { padding: 0 !important; }
+.p-1 { padding: $spacing-xs !important; }
+.p-2 { padding: $spacing-sm !important; }
+.p-3 { padding: $spacing-md !important; }
+.p-4 { padding: $spacing-lg !important; }
+
+// Border radius utilities
+.rounded-none { border-radius: $border-radius-none !important; }
+.rounded-sm { border-radius: $border-radius-sm !important; }
+.rounded-md { border-radius: $border-radius-md !important; }
+.rounded-lg { border-radius: $border-radius-lg !important; }
+.rounded-xl { border-radius: $border-radius-xl !important; }
+.rounded-full { border-radius: $border-radius-full !important; }
+
+// Shadow utilities
+.shadow-sm { box-shadow: $shadow-sm !important; }
+.shadow-md { box-shadow: $shadow-md !important; }
+.shadow-lg { box-shadow: $shadow-lg !important; }
+.shadow-xl { box-shadow: $shadow-xl !important; }
+
+// ============================================================================
+// RESPONSIVE UTILITIES
+// ============================================================================
+
+@media (min-width: $breakpoint-sm) {
+  .hidden-sm-up { display: none !important; }
+}
+
+@media (max-width: 575px) {
+  .hidden-sm-down { display: none !important; }
+}
+
+@media (min-width: $breakpoint-md) {
+  .hidden-md-up { display: none !important; }
+}
+
+@media (max-width: 767px) {
+  .hidden-md-down { display: none !important; }
+}
+
+@media (min-width: $breakpoint-lg) {
+  .hidden-lg-up { display: none !important; }
+}
+
+@media (max-width: 991px) {
+  .hidden-lg-down { display: none !important; }
+}
+
+// ============================================================================
+// CUSTOM CSS VARIABLES FOR THEME SWITCHING
+// ============================================================================
+
+:root {
+  // Light theme (default)
+  --theme-bg-primary: #ffffff;
+  --theme-bg-secondary: #f8f9fa;
+  --theme-bg-tertiary: #e9ecef;
+  --theme-text-primary: #000000;
+  --theme-text-secondary: #6c757d;
+  --theme-text-muted: #8c8c8c;
+  --theme-border: #e0e0e0;
+  --theme-border-light: #f0f0f0;
+  --theme-shadow: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+  --theme-bg-primary: #1e1e1e;
+  --theme-bg-secondary: #2c2c2c;
+  --theme-bg-tertiary: #383838;
+  --theme-text-primary: #ffffff;
+  --theme-text-secondary: #cccccc;
+  --theme-text-muted: #8c8c8c;
+  --theme-border: #383838;
+  --theme-border-light: #484848;
+  --theme-shadow: rgba(0, 0, 0, 0.3);
+}
+
+// ============================================================================
+// IONIC COMPONENT OVERRIDES
+// ============================================================================
+
+// Custom button styles
+.ion-button-custom {
+  --border-radius: #{$border-radius-lg};
+  --padding-start: #{$spacing-lg};
+  --padding-end: #{$spacing-lg};
+  font-weight: $font-weight-medium;
+}
+
+// Custom input styles
+.ion-input-custom {
+  --border-radius: #{$border-radius-md};
+  --padding-start: #{$spacing-md};
+  --padding-end: #{$spacing-md};
+  --border-color: #{$border-color};
+}
+
+// Custom card styles
+.ion-card-custom {
+  --background: var(--theme-bg-secondary);
+  --border-radius: #{$border-radius-lg};
+  box-shadow: $shadow-md;
+  border: 1px solid var(--theme-border);
+}
+
+// Custom modal styles
+.ion-modal-custom {
+  --border-radius: #{$border-radius-xl};
+  --background: var(--theme-bg-primary);
+  --box-shadow: #{$shadow-xl};
+}

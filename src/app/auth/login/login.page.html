@@ -1,0 +1,89 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="login-container">
+    <!-- Header -->
+    <div class="login-header">
+      <ion-icon name="person-circle-outline" size="large" color="primary"></ion-icon>
+      <h1>Welcome Back</h1>
+      <p>Sign in to your account</p>
+    </div>
+
+    <!-- Login Form -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+      <!-- Email Field -->
+      <ion-item class="form-field" [class.ion-invalid]="email?.invalid && email?.touched">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input
+          type="email"
+          formControlName="email"
+          placeholder="Enter your email"
+          [counter]="true"
+          maxlength="100">
+        </ion-input>
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+      </ion-item>
+      <ion-note *ngIf="email?.invalid && email?.touched" color="danger" class="error-message">
+        {{ getEmailErrorMessage() }}
+      </ion-note>
+
+      <!-- Password Field -->
+      <ion-item class="form-field" [class.ion-invalid]="password?.invalid && password?.touched">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input
+          [type]="showPassword ? 'text' : 'password'"
+          formControlName="password"
+          placeholder="Enter your password"
+          [counter]="true"
+          maxlength="50">
+        </ion-input>
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-button
+          fill="clear"
+          slot="end"
+          (click)="togglePasswordVisibility()"
+          type="button">
+          <ion-icon [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+        </ion-button>
+      </ion-item>
+      <ion-note *ngIf="password?.invalid && password?.touched" color="danger" class="error-message">
+        {{ getPasswordErrorMessage() }}
+      </ion-note>
+
+      <!-- Remember Me & Forgot Password -->
+      <div class="form-options">
+        <ion-checkbox formControlName="rememberMe" labelPlacement="end">
+          Remember me
+        </ion-checkbox>
+        <ion-button
+          fill="clear"
+          size="small"
+          (click)="navigateToForgotPassword()"
+          type="button">
+          Forgot Password?
+        </ion-button>
+      </div>
+
+      <!-- Login Button -->
+      <ion-button
+        expand="block"
+        type="submit"
+        [disabled]="isLoading || loginForm.invalid"
+        class="login-button">
+        <ion-spinner *ngIf="isLoading" name="crescent" slot="start"></ion-spinner>
+        <span *ngIf="!isLoading">Sign In</span>
+        <span *ngIf="isLoading">Signing In...</span>
+      </ion-button>
+    </form>
+
+    <!-- Register Link -->
+    <div class="register-link">
+      <p>Don't have an account?
+        <ion-button
+          fill="clear"
+          size="small"
+          (click)="navigateToRegister()">
+          Sign Up
+        </ion-button>
+      </p>
+    </div>
+  </div>
+</ion-content>

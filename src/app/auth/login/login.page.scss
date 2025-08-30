@@ -1,0 +1,148 @@
+.login-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  ion-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    color: var(--ion-color-primary);
+  }
+
+  p {
+    color: var(--ion-color-medium);
+    margin: 0;
+    font-size: 1rem;
+  }
+}
+
+.login-form {
+  .form-field {
+    margin-bottom: 1rem;
+    --border-radius: 8px;
+    --padding-start: 16px;
+    --inner-padding-end: 16px;
+
+    ion-icon[slot="start"] {
+      color: var(--ion-color-medium);
+    }
+  }
+
+  .error-message {
+    margin: 0 0 1rem 16px;
+    font-size: 0.875rem;
+  }
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+
+  ion-checkbox {
+    --size: 16px;
+    --checkbox-background-checked: var(--ion-color-primary);
+  }
+
+  ion-button {
+    --color: var(--ion-color-primary);
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+}
+
+.login-button {
+  --border-radius: 8px;
+  --padding-start: 24px;
+  --padding-end: 24px;
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+  font-weight: 600;
+  font-size: 1rem;
+  margin: 1.5rem 0 1rem 0;
+  min-height: 48px;
+
+  ion-spinner {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.register-link {
+  text-align: center;
+  margin-top: 2rem;
+
+  p {
+    color: var(--ion-color-medium);
+    margin: 0;
+    font-size: 0.875rem;
+  }
+
+  ion-button {
+    --color: var(--ion-color-primary);
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+}
+
+// Dark mode adjustments
+[data-theme="dark"] {
+  .login-header {
+    h1 {
+      color: var(--ion-color-primary);
+    }
+
+    p {
+      color: var(--ion-color-medium);
+    }
+  }
+
+  .form-options {
+    ion-button {
+      --color: var(--ion-color-primary);
+    }
+  }
+
+  .register-link {
+    p {
+      color: var(--ion-color-medium);
+    }
+
+    ion-button {
+      --color: var(--ion-color-primary);
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 576px) {
+  .login-container {
+    padding: 1rem 0.5rem;
+  }
+
+  .login-header {
+    h1 {
+      font-size: 1.75rem;
+    }
+
+    ion-icon {
+      font-size: 3rem;
+    }
+  }
+}

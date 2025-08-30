@@ -1,0 +1,223 @@
+{
+  "icons": {
+    "description": "App icon configuration for different platforms",
+    "source": "resources/icon.png",
+    "sizes": [
+      {
+        "size": 72,
+        "name": "icon-72x72.png",
+        "platform": "web"
+      },
+      {
+        "size": 96,
+        "name": "icon-96x96.png",
+        "platform": "web"
+      },
+      {
+        "size": 128,
+        "name": "icon-128x128.png",
+        "platform": "web"
+      },
+      {
+        "size": 144,
+        "name": "icon-144x144.png",
+        "platform": "web"
+      },
+      {
+        "size": 152,
+        "name": "icon-152x152.png",
+        "platform": "web"
+      },
+      {
+        "size": 192,
+        "name": "icon-192x192.png",
+        "platform": "web"
+      },
+      {
+        "size": 384,
+        "name": "icon-384x384.png",
+        "platform": "web"
+      },
+      {
+        "size": 512,
+        "name": "icon-512x512.png",
+        "platform": "web"
+      }
+    ],
+    "android_sizes": [
+      {
+        "size": 36,
+        "density": "ldpi",
+        "name": "mipmap-ldpi/ic_launcher.png"
+      },
+      {
+        "size": 48,
+        "density": "mdpi",
+        "name": "mipmap-mdpi/ic_launcher.png"
+      },
+      {
+        "size": 72,
+        "density": "hdpi",
+        "name": "mipmap-hdpi/ic_launcher.png"
+      },
+      {
+        "size": 96,
+        "density": "xhdpi",
+        "name": "mipmap-xhdpi/ic_launcher.png"
+      },
+      {
+        "size": 144,
+        "density": "xxhdpi",
+        "name": "mipmap-xxhdpi/ic_launcher.png"
+      },
+      {
+        "size": 192,
+        "density": "xxxhdpi",
+        "name": "mipmap-xxxhdpi/ic_launcher.png"
+      }
+    ],
+    "ios_sizes": [
+      {
+        "size": 20,
+        "name": "AppIcon-20x20@1x.png"
+      },
+      {
+        "size": 40,
+        "name": "AppIcon-20x20@2x.png"
+      },
+      {
+        "size": 60,
+        "name": "AppIcon-20x20@3x.png"
+      },
+      {
+        "size": 29,
+        "name": "AppIcon-29x29@1x.png"
+      },
+      {
+        "size": 58,
+        "name": "AppIcon-29x29@2x.png"
+      },
+      {
+        "size": 87,
+        "name": "AppIcon-29x29@3x.png"
+      },
+      {
+        "size": 40,
+        "name": "AppIcon-40x40@1x.png"
+      },
+      {
+        "size": 80,
+        "name": "AppIcon-40x40@2x.png"
+      },
+      {
+        "size": 120,
+        "name": "AppIcon-40x40@3x.png"
+      },
+      {
+        "size": 76,
+        "name": "AppIcon-76x76@1x.png"
+      },
+      {
+        "size": 152,
+        "name": "AppIcon-76x76@2x.png"
+      },
+      {
+        "size": 167,
+        "name": "AppIcon-83.5x83.5@2x.png"
+      },
+      {
+        "size": 1024,
+        "name": "AppIcon-1024x1024@1x.png"
+      }
+    ]
+  },
+  "splash": {
+    "description": "Splash screen configuration",
+    "source": "resources/splash.png",
+    "background_color": "#ffffff",
+    "android_sizes": [
+      {
+        "width": 320,
+        "height": 480,
+        "density": "port-ldpi"
+      },
+      {
+        "width": 480,
+        "height": 800,
+        "density": "port-mdpi"
+      },
+      {
+        "width": 720,
+        "height": 1280,
+        "density": "port-hdpi"
+      },
+      {
+        "width": 1080,
+        "height": 1920,
+        "density": "port-xhdpi"
+      },
+      {
+        "width": 1440,
+        "height": 2560,
+        "density": "port-xxhdpi"
+      }
+    ],
+    "ios_sizes": [
+      {
+        "width": 640,
+        "height": 1136,
+        "name": "Default-568h@2x~iphone.png"
+      },
+      {
+        "width": 750,
+        "height": 1334,
+        "name": "Default-667h@2x~iphone.png"
+      },
+      {
+        "width": 1242,
+        "height": 2208,
+        "name": "Default-736h@3x~iphone.png"
+      },
+      {
+        "width": 1125,
+        "height": 2436,
+        "name": "Default-812h@3x~iphone.png"
+      },
+      {
+        "width": 1170,
+        "height": 2532,
+        "name": "Default-896h@2x~iphone.png"
+      },
+      {
+        "width": 1284,
+        "height": 2778,
+        "name": "Default-896h@3x~iphone.png"
+      },
+      {
+        "width": 1536,
+        "height": 2048,
+        "name": "Default-Landscape~ipad.png"
+      },
+      {
+        "width": 2048,
+        "height": 1536,
+        "name": "Default-Portrait~ipad.png"
+      }
+    ]
+  },
+  "instructions": {
+    "setup": [
+      "1. Create a 1024x1024 PNG icon file at resources/icon.png",
+      "2. Create a 2732x2732 PNG splash screen file at resources/splash.png",
+      "3. Run: npx capacitor-assets generate",
+      "4. Or use a tool like: https://capacitorjs.com/docs/guides/splash-screens-and-icons",
+      "5. Copy generated assets to respective platform folders"
+    ],
+    "tools": [
+      "Online: https://www.pwabuilder.com/",
+      "CLI: npx capacitor-assets generate",
+      "Ionic: ionic cordova resources",
+      "Manual: Use image editing software to resize"
+    ]
+  }
+}

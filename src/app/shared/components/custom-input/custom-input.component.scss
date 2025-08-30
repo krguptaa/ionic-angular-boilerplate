@@ -1,0 +1,222 @@
+.custom-input-wrapper {
+  margin-bottom: 1rem;
+
+  .input-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+
+    &.required::after {
+      content: ' *';
+      color: var(--ion-color-danger);
+    }
+  }
+
+  .input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--ion-color-light-shade);
+    border-radius: 8px;
+    background: var(--ion-background-color);
+    transition: all 0.2s ease;
+
+    &.focused {
+      border-color: var(--ion-color-primary);
+      box-shadow: 0 0 0 2px rgba(var(--ion-color-primary-rgb), 0.2);
+    }
+
+    &.error {
+      border-color: var(--ion-color-danger);
+      box-shadow: 0 0 0 2px rgba(var(--ion-color-danger-rgb), 0.2);
+    }
+
+    &.disabled {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    &.readonly {
+      background: var(--ion-color-light-shade);
+    }
+
+    .prefix-icon,
+    .suffix-icon {
+      font-size: 1.2rem;
+      color: var(--ion-color-medium);
+      padding: 0 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .native-input {
+      flex: 1;
+      padding: 0.75rem;
+      border: none;
+      background: transparent;
+      font-size: 1rem;
+      line-height: 1.5;
+      color: var(--ion-color-dark);
+      outline: none;
+      width: 100%;
+
+      &::placeholder {
+        color: var(--ion-color-medium);
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+      }
+
+      &:read-only {
+        cursor: default;
+      }
+
+      // Remove default styling
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus {
+        -webkit-box-shadow: 0 0 0px 1000px var(--ion-background-color) inset;
+        -webkit-text-fill-color: var(--ion-color-dark);
+        transition: background-color 5000s ease-in-out 0s;
+      }
+    }
+
+    .suffix-container {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      padding-right: 0.5rem;
+
+      .password-toggle,
+      .clear-button {
+        --padding-start: 0.5rem;
+        --padding-end: 0.5rem;
+        --padding-top: 0.5rem;
+        --padding-bottom: 0.5rem;
+        --border-radius: 50%;
+        min-width: auto;
+        min-height: auto;
+        width: 32px;
+        height: 32px;
+
+        ion-icon {
+          font-size: 1rem;
+        }
+      }
+    }
+
+    // Adjust padding when icons are present
+    &.has-prefix .native-input {
+      padding-left: 0;
+    }
+
+    &.has-suffix .native-input {
+      padding-right: 0;
+    }
+  }
+
+  .input-hint,
+  .input-error {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    padding: 0 0.75rem;
+
+    ion-icon {
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+  }
+
+  .input-error {
+    color: var(--ion-color-danger);
+  }
+}
+
+// Dark mode adjustments
+[data-theme="dark"] {
+  .custom-input-wrapper {
+    .input-container {
+      background: var(--ion-color-dark-tint);
+      border-color: var(--ion-color-dark-shade);
+
+      &.focused {
+        border-color: var(--ion-color-primary);
+        box-shadow: 0 0 0 2px rgba(var(--ion-color-primary-rgb), 0.2);
+      }
+
+      &.error {
+        border-color: var(--ion-color-danger);
+        box-shadow: 0 0 0 2px rgba(var(--ion-color-danger-rgb), 0.2);
+      }
+
+      &.readonly {
+        background: var(--ion-color-dark-shade);
+      }
+
+      .native-input {
+        color: var(--ion-color-light);
+
+        &::placeholder {
+          color: var(--ion-color-medium);
+        }
+
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus {
+          -webkit-box-shadow: 0 0 0px 1000px var(--ion-color-dark-tint) inset;
+          -webkit-text-fill-color: var(--ion-color-light);
+        }
+      }
+
+      .prefix-icon,
+      .suffix-icon {
+        color: var(--ion-color-medium);
+      }
+    }
+
+    .input-label {
+      color: var(--ion-color-light);
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 576px) {
+  .custom-input-wrapper {
+    .input-container {
+      .native-input {
+        font-size: 16px; // Prevent zoom on iOS
+      }
+    }
+  }
+}
+
+// Focus styles for better accessibility
+.custom-input-wrapper {
+  .input-container.focused {
+    .prefix-icon,
+    .suffix-icon {
+      color: var(--ion-color-primary);
+    }
+  }
+
+  .input-container.error {
+    .prefix-icon,
+    .suffix-icon {
+      color: var(--ion-color-danger);
+    }
+  }
+}
+
+// Animation for focus/blur
+.custom-input-wrapper {
+  .input-container {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    .native-input {
+      transition: color 0.2s ease;
+    }
+  }
+}

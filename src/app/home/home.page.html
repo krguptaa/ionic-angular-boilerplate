@@ -1,0 +1,171 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Dashboard</ion-title>
+    <ion-buttons slot="end">
+      <app-theme-toggle></app-theme-toggle>
+      <ion-button (click)="logout()" color="danger">
+        <ion-icon name="log-out-outline" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Dashboard</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- User Profile Section -->
+  <div class="dashboard-container" *ngIf="currentUser">
+    <ion-card class="user-card">
+      <ion-card-header>
+        <div class="user-header">
+          <div class="user-avatar">
+            <div class="avatar-circle">
+              {{ getUserInitials() }}
+            </div>
+          </div>
+          <div class="user-info">
+            <ion-card-title>{{ getUserFullName() }}</ion-card-title>
+            <ion-card-subtitle>{{ currentUser.email }}</ion-card-subtitle>
+            <ion-badge [color]="currentUser.role === 'admin' ? 'primary' : 'secondary'">
+              {{ currentUser.role | titlecase }}
+            </ion-badge>
+          </div>
+        </div>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="user-stats">
+          <div class="stat-item">
+            <ion-icon name="calendar-outline"></ion-icon>
+            <span>Joined {{ formatDate(currentUser.createdAt) }}</span>
+          </div>
+          <div class="stat-item">
+            <ion-icon name="checkmark-circle-outline"></ion-icon>
+            <span>{{ currentUser.isActive ? 'Active' : 'Inactive' }}</span>
+          </div>
+        </div>
+        <ion-button
+          fill="outline"
+          expand="block"
+          (click)="refreshUserProfile()"
+          [disabled]="isLoading">
+          <ion-icon name="refresh-outline" slot="start"></ion-icon>
+          Refresh Profile
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- API Testing Section -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>API Service Demo</ion-card-title>
+        <ion-card-subtitle>Test different API endpoints</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="api-tests">
+          <ion-button
+            *ngFor="let endpoint of testEndpoints"
+            [fill]="apiTestResult?.endpoint === endpoint.name ? 'solid' : 'outline'"
+            [color]="apiTestResult?.endpoint === endpoint.name && apiTestResult?.success ? 'success' : 'primary'"
+            expand="block"
+            (click)="testApiCall(endpoint)"
+            [disabled]="isLoading"
+            class="api-test-button">
+            <ion-icon [name]="endpoint.method === 'GET' ? 'download-outline' : 'cloud-upload-outline'" slot="start"></ion-icon>
+            {{ endpoint.name }}
+            <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+          </ion-button>
+        </div>
+
+        <p class="endpoint-description" *ngFor="let endpoint of testEndpoints">
+          <strong>{{ endpoint.name }}:</strong> {{ endpoint.description }}
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- API Response Section -->
+    <ion-card *ngIf="apiTestResult">
+      <ion-card-header>
+        <ion-card-title>
+          <ion-icon
+            [name]="apiTestResult.success ? 'checkmark-circle-outline' : 'close-circle-outline'"
+            [color]="apiTestResult.success ? 'success' : 'danger'"
+            slot="start">
+          </ion-icon>
+          API Response
+        </ion-card-title>
+        <ion-card-subtitle>{{ apiTestResult.endpoint }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <div class="response-container">
+          <pre class="response-json">{{ apiTestResult | json }}</pre>
+        </div>
+        <div class="response-meta">
+          <small class="timestamp">
+            <ion-icon name="time-outline"></ion-icon>
+            {{ apiTestResult.timestamp | date:'medium' }}
+          </small>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Features Showcase -->
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>🚀 Boilerplate Features</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-icon name="shield-checkmark-outline" slot="start" color="success"></ion-icon>
+            <ion-label>
+              <h3>JWT Authentication</h3>
+              <p>Secure token-based authentication with auto-refresh</p>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="cloud-outline" slot="start" color="primary"></ion-icon>
+            <ion-label>
+              <h3>API Service Layer</h3>
+              <p>Generic HTTP client with caching, retry logic, and error handling</p>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="phone-portrait-outline" slot="start" color="secondary"></ion-icon>
+            <ion-label>
+              <h3>Cross-Platform</h3>
+              <p>Works on Web, Android, and iOS with Capacitor</p>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="moon-outline" slot="start" color="tertiary"></ion-icon>
+            <ion-label>
+              <h3>Theme System</h3>
+              <p>Light/Dark mode with automatic system detection</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <!-- Loading State -->
+  <div class="loading-container" *ngIf="isLoading">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Loading...</p>
+  </div>
+
+  <!-- No User State -->
+  <div class="no-user-container" *ngIf="!currentUser && !isLoading">
+    <ion-icon name="person-circle-outline" size="large" color="medium"></ion-icon>
+    <h3>No user data available</h3>
+    <p>Please log in to see your dashboard</p>
+    <ion-button routerLink="/auth/login" fill="solid">
+      <ion-icon name="log-in-outline" slot="start"></ion-icon>
+      Go to Login
+    </ion-button>
+  </div>
+</ion-content>

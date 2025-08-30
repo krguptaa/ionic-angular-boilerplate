@@ -1,0 +1,136 @@
+<ion-content [fullscreen]="true" class="ion-padding">
+  <div class="register-container">
+    <!-- Header -->
+    <div class="register-header">
+      <ion-icon name="person-add-outline" size="large" color="primary"></ion-icon>
+      <h1>Create Account</h1>
+      <p>Join us today</p>
+    </div>
+
+    <!-- Register Form -->
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+      <!-- Name Fields -->
+      <div class="name-fields">
+        <ion-item class="form-field" [class.ion-invalid]="firstName?.invalid && firstName?.touched">
+          <ion-label position="floating">First Name</ion-label>
+          <ion-input
+            type="text"
+            formControlName="firstName"
+            placeholder="Enter your first name"
+            maxlength="50">
+          </ion-input>
+          <ion-icon name="person-outline" slot="start"></ion-icon>
+        </ion-item>
+        <ion-note *ngIf="firstName?.invalid && firstName?.touched" color="danger" class="error-message">
+          {{ getFirstNameErrorMessage() }}
+        </ion-note>
+
+        <ion-item class="form-field" [class.ion-invalid]="lastName?.invalid && lastName?.touched">
+          <ion-label position="floating">Last Name</ion-label>
+          <ion-input
+            type="text"
+            formControlName="lastName"
+            placeholder="Enter your last name"
+            maxlength="50">
+          </ion-input>
+          <ion-icon name="person-outline" slot="start"></ion-icon>
+        </ion-item>
+        <ion-note *ngIf="lastName?.invalid && lastName?.touched" color="danger" class="error-message">
+          {{ getLastNameErrorMessage() }}
+        </ion-note>
+      </div>
+
+      <!-- Email Field -->
+      <ion-item class="form-field" [class.ion-invalid]="email?.invalid && email?.touched">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input
+          type="email"
+          formControlName="email"
+          placeholder="Enter your email"
+          maxlength="100">
+        </ion-input>
+        <ion-icon name="mail-outline" slot="start"></ion-icon>
+      </ion-item>
+      <ion-note *ngIf="email?.invalid && email?.touched" color="danger" class="error-message">
+        {{ getEmailErrorMessage() }}
+      </ion-note>
+
+      <!-- Password Field -->
+      <ion-item class="form-field" [class.ion-invalid]="password?.invalid && password?.touched">
+        <ion-label position="floating">Password</ion-label>
+        <ion-input
+          [type]="showPassword ? 'text' : 'password'"
+          formControlName="password"
+          placeholder="Create a password"
+          maxlength="50">
+        </ion-input>
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-button
+          fill="clear"
+          slot="end"
+          (click)="togglePasswordVisibility()"
+          type="button">
+          <ion-icon [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+        </ion-button>
+      </ion-item>
+      <ion-note *ngIf="password?.invalid && password?.touched" color="danger" class="error-message">
+        {{ getPasswordErrorMessage() }}
+      </ion-note>
+
+      <!-- Confirm Password Field -->
+      <ion-item class="form-field" [class.ion-invalid]="confirmPassword?.invalid && confirmPassword?.touched">
+        <ion-label position="floating">Confirm Password</ion-label>
+        <ion-input
+          [type]="showConfirmPassword ? 'text' : 'password'"
+          formControlName="confirmPassword"
+          placeholder="Confirm your password"
+          maxlength="50">
+        </ion-input>
+        <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+        <ion-button
+          fill="clear"
+          slot="end"
+          (click)="toggleConfirmPasswordVisibility()"
+          type="button">
+          <ion-icon [name]="showConfirmPassword ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+        </ion-button>
+      </ion-item>
+      <ion-note *ngIf="confirmPassword?.invalid && confirmPassword?.touched" color="danger" class="error-message">
+        {{ getConfirmPasswordErrorMessage() }}
+      </ion-note>
+
+      <!-- Terms and Conditions -->
+      <ion-item class="terms-field" [class.ion-invalid]="acceptTerms?.invalid && acceptTerms?.touched">
+        <ion-checkbox formControlName="acceptTerms" labelPlacement="end" class="terms-checkbox">
+          I agree to the Terms and Conditions and Privacy Policy
+        </ion-checkbox>
+      </ion-item>
+      <ion-note *ngIf="acceptTerms?.invalid && acceptTerms?.touched" color="danger" class="error-message">
+        You must accept the terms and conditions to continue
+      </ion-note>
+
+      <!-- Register Button -->
+      <ion-button
+        expand="block"
+        type="submit"
+        [disabled]="isLoading || registerForm.invalid"
+        class="register-button">
+        <ion-spinner *ngIf="isLoading" name="crescent" slot="start"></ion-spinner>
+        <span *ngIf="!isLoading">Create Account</span>
+        <span *ngIf="isLoading">Creating Account...</span>
+      </ion-button>
+    </form>
+
+    <!-- Login Link -->
+    <div class="login-link">
+      <p>Already have an account?
+        <ion-button
+          fill="clear"
+          size="small"
+          (click)="navigateToLogin()">
+          Sign In
+        </ion-button>
+      </p>
+    </div>
+  </div>
+</ion-content>

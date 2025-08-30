@@ -1,0 +1,92 @@
+<div class="custom-input-wrapper">
+  <!-- Label -->
+  <ion-label
+    *ngIf="label"
+    position="stacked"
+    class="input-label"
+    [class.required]="required">
+    {{ label }}
+  </ion-label>
+
+  <!-- Input Container -->
+  <div class="input-container" [ngClass]="getInputClasses()">
+    <!-- Prefix Icon -->
+    <ion-icon
+      *ngIf="prefixIcon"
+      name="{{ prefixIcon }}"
+      class="prefix-icon"
+      slot="start">
+    </ion-icon>
+
+    <!-- Input Element -->
+    <input
+      [type]="getCurrentInputType()"
+      [value]="value"
+      [placeholder]="placeholder"
+      [disabled]="disabled"
+      [readonly]="readonly"
+      [attr.maxlength]="maxlength"
+      [attr.minlength]="minlength"
+      [pattern]="pattern"
+      [min]="min"
+      [max]="max"
+      [step]="step"
+      [autocomplete]="autocomplete"
+      [attr.inputmode]="inputmode"
+      class="native-input"
+      (input)="onInputChange($event)"
+      (focus)="onFocus($event)"
+      (blur)="onBlur($event)"
+      (keypress)="onKeyPress($event)"
+    />
+
+    <!-- Suffix Elements -->
+    <div class="suffix-container" *ngIf="suffixIcon || shouldShowPasswordToggle() || shouldShowClearButton()">
+      <!-- Custom Suffix Icon -->
+      <ion-icon
+        *ngIf="suffixIcon"
+        name="{{ suffixIcon }}"
+        class="suffix-icon">
+      </ion-icon>
+
+      <!-- Password Toggle -->
+      <ion-button
+        *ngIf="shouldShowPasswordToggle()"
+        fill="clear"
+        size="small"
+        class="password-toggle"
+        (click)="togglePasswordVisibility()"
+        type="button">
+        <ion-icon name="{{ getPasswordToggleIcon() }}"></ion-icon>
+      </ion-button>
+
+      <!-- Clear Button -->
+      <ion-button
+        *ngIf="shouldShowClearButton()"
+        fill="clear"
+        size="small"
+        class="clear-button"
+        (click)="clearInput()"
+        type="button">
+        <ion-icon name="close-circle"></ion-icon>
+      </ion-button>
+    </div>
+  </div>
+
+  <!-- Hint Text -->
+  <ion-note
+    *ngIf="hint && !hasError"
+    class="input-hint"
+    color="medium">
+    {{ hint }}
+  </ion-note>
+
+  <!-- Error Message -->
+  <ion-note
+    *ngIf="hasError"
+    class="input-error"
+    color="danger">
+    <ion-icon name="alert-circle-outline"></ion-icon>
+    {{ currentErrorMessage }}
+  </ion-note>
+</div>
