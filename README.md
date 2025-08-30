@@ -56,7 +56,7 @@ A comprehensive, production-ready Ionic 8 + Angular boilerplate with authenticat
 1. **Clone the repository**:
    ```bash
    git clone https://github.com/krguptaa/ionic-angular-boilerplate.git
-   cd ionic-boilerplate
+   cd ionic-angular-boilerplate
    ```
 
 2. **Install dependencies**:
@@ -420,7 +420,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Support
 
-For support, email support@yourcompany.com or join our Slack channel.
+For support, email webworldgk@gmail.com (Kamlesh Gupta).
 
 ---
 
