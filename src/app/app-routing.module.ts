@@ -14,7 +14,11 @@ export const routes: Routes = [
     path: '',
     pathMatch: 'full',
     component: null as any
+  },  {
+    path: 'settings',
+    loadChildren: () => import('./modules/settings/settings.module').then( m => m.SettingsPageModule)
   },
+
 ];
 
 @NgModule({

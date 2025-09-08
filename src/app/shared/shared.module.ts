@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 
 // Components
+import { AuthLayoutComponent } from './components/auth-layout/auth-layout.component';
 import { CustomButtonComponent } from './components/custom-button/custom-button.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 import { ThemeToggleComponent } from './components/theme-toggle/theme-toggle.component';
@@ -21,6 +22,7 @@ import { ToastService } from '../services/toast.service';
   imports: [
     CommonModule,
     IonicModule,
+    AuthLayoutComponent,
     CustomButtonComponent,
     LoadingSpinnerComponent,
     ThemeToggleComponent,
@@ -32,6 +34,7 @@ import { ToastService } from '../services/toast.service';
     BadgeComponent
   ],
   exports: [
+    AuthLayoutComponent,
     CustomButtonComponent,
     LoadingSpinnerComponent,
     ThemeToggleComponent,

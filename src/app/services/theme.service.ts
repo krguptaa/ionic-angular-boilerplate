@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Platform } from '@ionic/angular';
 
-export type ThemeType = 'light' | 'dark' | 'auto';
+export type ThemeType = 'light' | 'dark';
 
 @Injectable({
   providedIn: 'root'
@@ -31,26 +31,18 @@ export class ThemeService {
     if (savedTheme) {
       initialTheme = savedTheme;
     } else if (systemPrefersDark) {
-      initialTheme = 'auto';
+      initialTheme = 'dark';
     }
 
     // Apply the theme
     this.setTheme(initialTheme);
-
-    // Listen for system theme changes
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-      this.prefersDarkSubject.next(e.matches);
-      if (this.currentThemeSubject.value === 'auto') {
-        this.applyTheme(e.matches);
-      }
-    });
   }
 
   public setTheme(theme: ThemeType): void {
     this.currentThemeSubject.next(theme);
     localStorage.setItem('theme', theme);
 
-    const isDark = theme === 'dark' || (theme === 'auto' && this.prefersDarkSubject.value);
+    const isDark = theme === 'dark';
     this.applyTheme(isDark);
   }
 
@@ -76,15 +68,13 @@ export class ThemeService {
 
   public isDarkMode(): boolean {
     const theme = this.currentThemeSubject.value;
-    return theme === 'dark' || (theme === 'auto' && this.prefersDarkSubject.value);
+    return theme === 'dark';
   }
 
   public toggleTheme(): void {
     const currentTheme = this.currentThemeSubject.value;
     if (currentTheme === 'light') {
       this.setTheme('dark');
-    } else if (currentTheme === 'dark') {
-      this.setTheme('auto');
     } else {
       this.setTheme('light');
     }
@@ -97,8 +87,6 @@ export class ThemeService {
         return 'sunny';
       case 'dark':
         return 'moon';
-      case 'auto':
-        return 'contrast';
       default:
         return 'sunny';
     }
@@ -111,8 +99,6 @@ export class ThemeService {
         return 'Light Mode';
       case 'dark':
         return 'Dark Mode';
-      case 'auto':
-        return 'Auto (System)';
       default:
         return 'Light Mode';
     }

@@ -1,0 +1,31 @@
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+      <ion-menu-toggle auto-hide="false">
+        <ion-item button routerLink="/dashboard" routerLinkActive="selected">
+          <ion-icon name="home-outline" slot="start"></ion-icon>
+          <ion-label>Dashboard</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle auto-hide="false">
+        <ion-item button routerLink="/settings" routerLinkActive="selected">
+          <ion-icon name="settings-outline" slot="start"></ion-icon>
+          <ion-label>Settings</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+      <ion-menu-toggle auto-hide="false">
+        <ion-item button (click)="logout()">
+          <ion-icon name="log-out-outline" slot="start"></ion-icon>
+          <ion-label>Logout</ion-label>
+        </ion-item>
+      </ion-menu-toggle>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-router-outlet id="main-content"></ion-router-outlet>

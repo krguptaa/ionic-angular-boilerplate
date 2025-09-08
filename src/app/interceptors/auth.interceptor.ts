@@ -161,27 +161,107 @@ export class AuthInterceptor implements HttpInterceptor {
       case HTTP_STATUS.UNAUTHORIZED:
         return this.handle401Error(request, next);
       case HTTP_STATUS.FORBIDDEN:
-        this.toastService.showError('Access denied. You do not have permission to perform this action.');
+        this.handleForbiddenError(error);
         break;
       case HTTP_STATUS.NOT_FOUND:
-        this.toastService.showError('The requested resource was not found.');
+        this.handleNotFoundError(error);
+        break;
+      case HTTP_STATUS.BAD_REQUEST:
+        this.handleBadRequestError(error);
+        break;
+      case HTTP_STATUS.CONFLICT:
+        this.handleConflictError(error);
         break;
       case HTTP_STATUS.INTERNAL_SERVER_ERROR:
-        this.toastService.showError('Server error. Please try again later.');
+        this.handleServerError(error);
         break;
       case 0:
-        // Network error
-        this.toastService.showError('Network connection failed. Please check your internet connection.');
+        this.handleNetworkError();
         break;
       default:
-        // Generic error handling
-        if (error.status >= 400 && error.status < 500) {
-          this.toastService.showError('Request failed. Please check your input and try again.');
-        } else if (error.status >= 500) {
-          this.toastService.showError('Server error. Please try again later.');
-        }
+        this.handleGenericError(error);
     }
 
     return throwError(() => error);
+  }
+
+  private handleForbiddenError(error: HttpErrorResponse): void {
+    let message = 'Access denied. You do not have permission to perform this action.';
+    if (error.error?.message) {
+      message = error.error.message;
+    }
+    this.toastService.showError(message);
+  }
+
+  private handleNotFoundError(error: HttpErrorResponse): void {
+    let message = 'The requested resource was not found.';
+    if (error.error?.message) {
+      message = error.error.message;
+    }
+    this.toastService.showError(message);
+  }
+
+  private handleBadRequestError(error: HttpErrorResponse): void {
+    let message = 'Invalid request. Please check your input.';
+
+    // Handle validation errors
+    if (error.error?.errors) {
+      const validationErrors = error.error.errors;
+      if (typeof validationErrors === 'object') {
+        const firstError = Object.values(validationErrors)[0];
+        if (typeof firstError === 'string') {
+          message = firstError;
+        }
+      }
+    } else if (error.error?.message) {
+      message = error.error.message;
+    }
+
+    this.toastService.showError(message);
+  }
+
+  private handleConflictError(error: HttpErrorResponse): void {
+    let message = 'This action conflicts with the current state.';
+    if (error.error?.message) {
+      message = error.error.message;
+    }
+    this.toastService.showError(message);
+  }
+
+  private handleServerError(error: HttpErrorResponse): void {
+    let message = 'Server error. Please try again later.';
+    if (error.error?.message) {
+      message = error.error.message;
+    }
+    this.toastService.showError(message);
+  }
+
+  private handleNetworkError(): void {
+    this.toastService.showError('Network connection failed. Please check your internet connection and try again.');
+  }
+
+  private handleGenericError(error: HttpErrorResponse): void {
+    let message = 'An error occurred while processing your request.';
+
+    if (error.error && typeof error.error === 'object') {
+      if (error.error.message) {
+        message = error.error.message;
+      } else if (error.error.error) {
+        message = error.error.error;
+      }
+    }
+
+    // Handle different status code ranges
+    if (error.status >= 400 && error.status < 500) {
+      if (!message.includes('Invalid') && !message.includes('check')) {
+        message = 'Request failed. Please check your input and try again.';
+      }
+    } else if (error.status >= 500) {
+      if (!message.includes('Server')) {
+        message = 'Server error. Please try again later.';
+      }
+    }
+
+    this.toastService.showError(message);
   }
 }

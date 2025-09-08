@@ -78,9 +78,6 @@ export class ThemeToggleComponent implements OnInit, OnDestroy {
       case 'dark':
         this.currentIcon = 'moon';
         break;
-      case 'auto':
-        this.currentIcon = 'contrast';
-        break;
       default:
         this.currentIcon = 'sunny';
     }
