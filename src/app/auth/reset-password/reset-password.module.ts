@@ -7,14 +7,16 @@ import { IonicModule } from '@ionic/angular';
 import { ResetPasswordPageRoutingModule } from './reset-password-routing.module';
 
 import { ResetPasswordPage } from './reset-password.page';
+import { AuthLayoutComponent } from '../../auth-containers/auth-layout/auth-layout.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ResetPasswordPageRoutingModule
-  ],
-  declarations: [ResetPasswordPage]
+    ResetPasswordPageRoutingModule,
+    AuthLayoutComponent,
+    ResetPasswordPage
+  ]
 })
 export class ResetPasswordPageModule {}
