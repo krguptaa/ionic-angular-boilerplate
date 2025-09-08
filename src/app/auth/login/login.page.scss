@@ -42,16 +42,9 @@
 
 .form-options {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   margin: 1rem 0;
-
-  ion-checkbox {
-    --size: 20px;
-    --checkbox-background-checked: var(--ion-color-primary);
-    min-height: 44px;
-    min-width: 44px;
-  }
 
   ion-button {
     --color: var(--ion-color-primary);

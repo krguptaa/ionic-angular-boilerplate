@@ -20,6 +20,7 @@ export class LoginPage implements OnInit {
   loginForm!: FormGroup;
   isLoading = false;
   showPassword = false;
+  applicationId = 1;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -35,8 +36,7 @@ export class LoginPage implements OnInit {
   private initializeForm(): void {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      rememberMe: [false]
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
@@ -46,7 +46,7 @@ export class LoginPage implements OnInit {
 
       try {
         const { email, password } = this.loginForm.value;
-        await this.authService.login({ email, password }).toPromise();
+        await this.authService.login({ applicationId: this.applicationId  , email, password }).toPromise();
 
         // Check for return URL
         const returnUrl = sessionStorage.getItem('returnUrl') || '/dashboard';

@@ -67,7 +67,7 @@ export class AuthService {
   }
 
   login(credentials: LoginRequest): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(`${APP_CONSTANTS.API_BASE_URL}/auth/login`, credentials)
+    return this.http.post<LoginResponse>(`${APP_CONSTANTS.API_BASE_URL}/oauth/authorize`, credentials)
       .pipe(
         tap(async (response) => {
           await this.handleLoginSuccess(response);
@@ -77,6 +77,7 @@ export class AuthService {
           return throwError(() => error);
         })
       );
+
   }
 
   register(userData: RegisterRequest): Observable<RegisterResponse> {
