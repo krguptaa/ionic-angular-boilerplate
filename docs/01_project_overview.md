@@ -4,7 +4,7 @@
 
 ## What is This Project?
 
-This is a modern mobile and web application built with Ionic 8 and Angular 17, designed to work seamlessly across Android, iOS, and as a Progressive Web App (PWA). The application provides a comprehensive user interface for interacting with CodeIgniter 4 backend services through a RESTful API.
+This is a modern mobile and web application built with Ionic 8 and Angular 20, designed to work seamlessly across Android, iOS, and as a Progressive Web App (PWA). The application provides a comprehensive user interface with JWT authentication, offline capabilities, and native device features.
 
 ## 🏗️ Architecture Overview
 
@@ -15,12 +15,12 @@ This is a modern mobile and web application built with Ionic 8 and Angular 17, d
 │    Angular)     │    │                 │    │   • iOS         │
 │                 │    │                 │    │   • PWA/Web     │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
-         │                       │                       │
-         ▼                       ▼                       ▼
+          │                       │                       │
+          ▼                       ▼                       ▼
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
-│   Services      │    │   Native        │    │   Backend       │
-│   Layer         │◄──►│   Plugins       │    │   API           │
-│                 │    │                 │    │   (CodeIgniter 4) │
+│   Services      │    │   Native        │    │   API           │
+│   Layer         │◄──►│   Plugins       │    │   Integration   │
+│                 │    │                 │    │                 │
 └─────────────────┘    └─────────────────┘    └─────────────────┘
 ```
 
@@ -29,7 +29,7 @@ This is a modern mobile and web application built with Ionic 8 and Angular 17, d
 ### Core Functionality
 - **User Authentication**: Login, registration, password reset
 - **JWT Token Management**: Automatic token refresh and storage
-- **API Integration**: RESTful API communication with CodeIgniter 4 backend
+- **API Integration**: RESTful API communication
 - **Responsive Design**: Works on all screen sizes and orientations
 - **Offline Support**: Basic offline functionality via service workers
 
@@ -43,14 +43,14 @@ This is a modern mobile and web application built with Ionic 8 and Angular 17, d
 
 ### Frontend Framework
 - **Ionic 8**: UI component library and mobile framework
-- **Angular 17**: Core framework for building the application
+- **Angular 20**: Core framework for building the application
 - **TypeScript**: Type-safe JavaScript for better development experience
 - **SCSS**: Enhanced CSS with variables and mixins
 
 ### Build & Development Tools
 - **Angular CLI**: Command-line interface for Angular development
 - **Ionic CLI**: Command-line interface for Ionic development
-- **Capacitor 5**: Native runtime for building mobile apps
+- **Capacitor 7**: Native runtime for building mobile apps
 - **Webpack**: Module bundler (used by Angular CLI)
 
 ### Native Integration

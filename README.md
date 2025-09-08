@@ -1,6 +1,6 @@
-# Ionic 8 + Angular + CodeIgniter 4 Mobile App
+# Ionic 8 + Angular Boilerplate
 
-A modern, full-stack mobile application built with Ionic 8 frontend, Angular 17, and CodeIgniter 4 backend. Supports Android, iOS, and Progressive Web App (PWA) deployment with JWT authentication, offline capabilities, and native device features.
+A modern mobile application built with Ionic 8 frontend and Angular 20. Supports Android, iOS, and Progressive Web App (PWA) deployment with JWT authentication, offline capabilities, and native device features.
 
 ## 📋 Prerequisites
 
@@ -18,10 +18,9 @@ Before you begin, ensure your system meets these requirements:
 |----------|---------|---------|
 | **Node.js** | 18.0.0+ | JavaScript runtime |
 | **npm** | 8.0.0+ | Package manager |
-| **Angular CLI** | 17.0.0+ | Angular development tools |
+| **Angular CLI** | 20.0.0+ | Angular development tools |
 | **Ionic CLI** | 7.0.0+ | Ionic development tools |
-| **PHP** | 8.1+ | CodeIgniter 4 backend |
-| **Composer** | 2.0+ | PHP dependency manager |
+| **Capacitor CLI** | 7.4.3+ | Native runtime tools |
 | **Java JDK** | 11+ (Android only) | Android development |
 | **Android Studio** | 2022+ (Android only) | Android IDE and SDK |
 | **Xcode** | 14+ (macOS only) | iOS development |
@@ -54,8 +53,8 @@ npm --version     # Should show 8.x.x or higher
 
 #### Install Angular CLI
 ```bash
-npm install -g @angular/cli@17
-ng version         # Should show Angular CLI 17.x.x
+npm install -g @angular/cli@20
+ng version         # Should show Angular CLI 20.x.x
 ```
 
 #### Install Ionic CLI
@@ -85,7 +84,7 @@ npm list --depth=0
 ```typescript
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8000',  // Your Laravel backend URL
+  apiUrl: 'http://localhost:8000',  // Your backend API URL
   corsBypass: true
 };
 ```
@@ -285,7 +284,7 @@ npx cap sync android
 
 ```bash
 # Build web assets for production
-ng build --configuration=production
+ng build
 
 # Sync to Android project
 npx cap sync android
@@ -466,7 +465,7 @@ npx cap sync ios
 
 ```bash
 # Build web assets for production
-ng build --configuration=production
+ng build
 
 # Sync to iOS project
 npx cap sync ios
@@ -668,7 +667,7 @@ npx cap build ios
 
 ```bash
 # Build for production with PWA support
-ng build --configuration=production
+ng build
 
 # The build output will be in 'www/' directory
 # Service worker and web app manifest are automatically included
@@ -728,11 +727,11 @@ netlify deploy --prod --dir=www
 # Development (default)
 ng serve
 
-# UAT environment
-ng serve --configuration=uat
-
 # Production build
-ng build --configuration=production
+ng build
+
+# Watch mode
+ng build --watch --configuration development
 ```
 
 ### Environment Files
@@ -784,21 +783,21 @@ npm run quality
 ng build
 
 # Production build
-ng build --configuration=production
+ng build
 
-# UAT build
-ng build --configuration=uat
+# Watch mode
+ng build --watch --configuration development
 ```
 
 ### Native Builds
 ```bash
 # Android build
-ng build --configuration=production
+ng build
 npx cap sync android
 npx cap open android
 
 # iOS build
-ng build --configuration=production
+ng build
 npx cap sync ios
 npx cap open ios
 ```
@@ -808,7 +807,7 @@ npx cap open ios
 ### Web/PWA Deployment
 ```bash
 # Build for production
-ng build --configuration=production
+ng build
 
 # Deploy to your hosting service
 # Options: Firebase, Vercel, Netlify, AWS S3, etc.
@@ -817,7 +816,7 @@ ng build --configuration=production
 ### Android Deployment
 ```bash
 # Build and sync
-ng build --configuration=production
+ng build
 npx cap sync android
 
 # Generate signed APK/AAB in Android Studio
@@ -827,7 +826,7 @@ npx cap sync android
 ### iOS Deployment
 ```bash
 # Build and sync
-ng build --configuration=production
+ng build
 npx cap sync ios
 
 # Archive in Xcode
@@ -838,7 +837,7 @@ npx cap sync ios
 
 ### For All Platforms
 - [ ] Node.js 18+ installed
-- [ ] Angular CLI 17+ installed
+- [ ] Angular CLI 20+ installed
 - [ ] Ionic CLI 7+ installed
 - [ ] Project cloned and dependencies installed
 - [ ] Environment files configured

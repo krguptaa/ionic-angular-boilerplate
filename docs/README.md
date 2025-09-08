@@ -45,8 +45,7 @@ Frontend (Ionic 8 + Angular)
 │   ├── Local (Development)
 │   ├── UAT (Testing)
 │   └── Production
-└── Backend Integration
-    └── Laravel API
+└── API Integration
 ```
 
 ## 📱 Supported Platforms
@@ -60,9 +59,9 @@ Frontend (Ionic 8 + Angular)
 
 ## 🛠️ Technology Stack
 
-- **Framework**: Ionic 8 + Angular 17
+- **Framework**: Ionic 8 + Angular 20
 - **Build Tool**: Angular CLI
-- **Native Runtime**: Capacitor 5
+- **Native Runtime**: Capacitor 7
 - **Styling**: SCSS with Ionic Design System
 - **State Management**: RxJS + Services
 - **HTTP Client**: Angular HttpClient with Interceptors
@@ -77,7 +76,7 @@ See [SUMMARY.md](SUMMARY.md) for a complete table of contents and file descripti
 Before starting, ensure you have:
 
 - [ ] Node.js 18+ and npm
-- [ ] Angular CLI 17+
+- [ ] Angular CLI 20+
 - [ ] Ionic CLI 7+
 - [ ] For Android: Android Studio + JDK 11+
 - [ ] For iOS: Xcode 14+ + macOS
@@ -121,8 +120,8 @@ Choose your target platform and follow the corresponding guide:
 
 - **Current Version**: 1.0.0
 - **Ionic Version**: 8.x
-- **Angular Version**: 17.x
-- **Capacitor Version**: 5.x
+- **Angular Version**: 20.x
+- **Capacitor Version**: 7.x
 - **Node.js Required**: 18.0+
 
 ---
