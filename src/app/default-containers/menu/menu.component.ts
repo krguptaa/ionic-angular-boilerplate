@@ -1,0 +1,27 @@
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { IonicModule } from '@ionic/angular';
+import { RouterModule } from '@angular/router';
+import { MENU_ITEMS, MenuItem } from '../../constants/menu.constants';
+
+@Component({
+  selector: 'app-menu',
+  templateUrl: './menu.component.html',
+  styleUrls: ['./menu.component.scss'],
+  standalone: true,
+  imports: [CommonModule, IonicModule, RouterModule]
+})
+export class MenuComponent implements OnInit {
+  menuItems: MenuItem[] = MENU_ITEMS;
+  expandedItems: { [key: string]: boolean } = {};
+
+  constructor() { }
+
+  ngOnInit() {
+    // Initialize any default expanded items if needed
+  }
+
+  toggleSubmenu(itemId: string) {
+    this.expandedItems[itemId] = !this.expandedItems[itemId];
+  }
+}
