@@ -125,11 +125,9 @@
 
 // Responsive design
 @media (max-width: 576px) {
-  .login-container {
-    padding: 1rem 0.5rem;
-  }
-
   .login-header {
+    margin-bottom: 1.5rem;
+
     h1 {
       font-size: 1.75rem;
     }
@@ -137,5 +135,27 @@
     ion-icon {
       font-size: 3rem;
     }
+  }
+
+  .login-form {
+    .form-field {
+      margin-bottom: 0.75rem;
+    }
+
+    .error-message {
+      margin: 0 0 0.75rem 16px;
+    }
+  }
+
+  .form-options {
+    margin: 0.75rem 0;
+  }
+
+  .login-button {
+    margin: 1.25rem 0 0.75rem 0;
+  }
+
+  .register-link {
+    margin-top: 1.5rem;
   }
 }
