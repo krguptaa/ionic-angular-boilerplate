@@ -1,12 +1,6 @@
 {
   "/simulator-services/*": {
-    "target": "http://localhost:8000",
-    "secure": false,
-    "changeOrigin": true,
-    "logLevel": "debug"
-  },
-  "/simulator/*": {
-    "target": "http://localhost:8000",
+    "target": "http://localhost/simulator-services",
     "secure": false,
     "changeOrigin": true,
     "logLevel": "debug"
