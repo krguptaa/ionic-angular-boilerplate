@@ -29,6 +29,7 @@ export enum UserRole {
 
 // Authentication Models
 export interface LoginRequest {
+  applicationId: number;
   email: string;
   password: string;
 }
