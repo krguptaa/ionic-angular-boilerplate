@@ -1,16 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 
 import { AuthService } from '../../services/auth.service';
 import { ToastService } from '../../services/toast.service';
 import { ValidationUtils } from '../../utilities';
+import { SharedModule } from '../../shared/shared.module';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
-  standalone: false
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, IonicModule, SharedModule]
 })
 export class RegisterPage implements OnInit {
   registerForm!: FormGroup;
@@ -68,7 +72,7 @@ export class RegisterPage implements OnInit {
           password
         }).toPromise();
 
-        this.router.navigate(['/home']);
+        this.router.navigate(['/dashboard']);
       } catch (error) {
         // Error is already handled in the auth service
         console.error('Registration error:', error);

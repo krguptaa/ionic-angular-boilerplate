@@ -1,4 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { IonicModule } from '@ionic/angular';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -7,14 +10,16 @@ import { ApiService } from '../services/api.service';
 import { UserService } from '../services/user.service';
 import { ToastService } from '../services/toast.service';
 import { User } from '../models';
+import { SharedModule } from '../shared/shared.module';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
-  standalone: false,
+  selector: 'app-dashboard',
+  templateUrl: 'dashboard.page.html',
+  styleUrls: ['dashboard.page.scss'],
+  standalone: true,
+  imports: [CommonModule, FormsModule, IonicModule, SharedModule],
 })
-export class HomePage implements OnInit, OnDestroy {
+export class DashboardPage implements OnInit, OnDestroy {
   private destroy$ = new Subject<void>();
 
   currentUser: User | null = null;

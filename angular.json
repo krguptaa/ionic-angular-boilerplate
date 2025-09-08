@@ -19,11 +19,17 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "allowedCommonJsDependencies": ["localforage"],
             "assets": [
               {
                 "glob": "**/*",
                 "input": "src/assets",
                 "output": "assets"
+              },
+              {
+                "glob": "manifest.json",
+                "input": "src",
+                "output": "."
               },
               {
                 "glob": "**/*.svg",
@@ -106,6 +112,11 @@
                 "output": "assets"
               },
               {
+                "glob": "manifest.json",
+                "input": "src",
+                "output": "."
+              },
+              {
                 "glob": "**/*.svg",
                 "input": "node_modules/ionicons/dist/ionicons/svg",
                 "output": "./svg"
@@ -136,7 +147,8 @@
   "cli": {
     "schematicCollections": [
       "@ionic/angular-toolkit"
-    ]
+    ],
+    "analytics": "de71a0c4-950e-4cea-ad04-d09649b5c7ee"
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {

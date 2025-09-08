@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Injector, Inject } from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { catchError, switchMap, filter, take, tap } from 'rxjs/operators';
@@ -15,9 +15,16 @@ export class AuthInterceptor implements HttpInterceptor {
   private refreshTokenSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
 
   constructor(
-    private authService: AuthService,
-    private toastService: ToastService
+    @Inject(Injector) private injector: Injector
   ) {}
+
+  private get authService(): AuthService {
+    return this.injector.get(AuthService);
+  }
+
+  private get toastService(): ToastService {
+    return this.injector.get(ToastService);
+  }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const startTime = Date.now();
@@ -136,13 +143,13 @@ export class AuthInterceptor implements HttpInterceptor {
   private logResponse(request: HttpRequest<any>, event: any, startTime: number): void {
     const duration = Date.now() - startTime;
     if (event.type === 4) { // HttpResponse
-      console.log(`🚀 API Response: ${request.method} ${request.url} - ${event.status} (${duration}ms)`);
+      console.log(`API Response: ${request.method} ${request.url} - ${event.status} (${duration}ms)`);
     }
   }
 
   private logError(request: HttpRequest<any>, error: any, startTime: number): void {
     const duration = Date.now() - startTime;
-    console.error(`❌ API Error: ${request.method} ${request.url} - ${error.status || 'Unknown'} (${duration}ms)`, error);
+    console.error(`API Error: ${request.method} ${request.url} - ${error.status || 'Unknown'} (${duration}ms)`, error);
   }
 
   private handleHttpError(error: HttpErrorResponse, request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

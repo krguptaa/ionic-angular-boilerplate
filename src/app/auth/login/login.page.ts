@@ -1,16 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { IonicModule } from '@ionic/angular';
 
 import { AuthService } from '../../services/auth.service';
 import { ToastService } from '../../services/toast.service';
 import { ValidationUtils } from '../../utilities';
+import { SharedModule } from '../../shared/shared.module';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
-  standalone: false
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule, IonicModule, SharedModule]
 })
 export class LoginPage implements OnInit {
   loginForm!: FormGroup;
@@ -45,7 +49,7 @@ export class LoginPage implements OnInit {
         await this.authService.login({ email, password }).toPromise();
 
         // Check for return URL
-        const returnUrl = sessionStorage.getItem('returnUrl') || '/home';
+        const returnUrl = sessionStorage.getItem('returnUrl') || '/dashboard';
         sessionStorage.removeItem('returnUrl');
 
         this.router.navigate([returnUrl]);

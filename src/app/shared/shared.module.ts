@@ -18,13 +18,14 @@ import { ThemeService } from '../services/theme.service';
 import { ToastService } from '../services/toast.service';
 
 @NgModule({
-  declarations: [CustomInputComponent, CustomModalComponent],
   imports: [
     CommonModule,
     IonicModule,
     CustomButtonComponent,
     LoadingSpinnerComponent,
     ThemeToggleComponent,
+    CustomInputComponent,
+    CustomModalComponent,
     AlertComponent,
     ToastComponent,
     CardComponent,

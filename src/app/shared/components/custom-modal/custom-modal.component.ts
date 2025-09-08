@@ -7,7 +7,8 @@ import { ModalController } from '@ionic/angular';
   selector: 'app-custom-modal',
   templateUrl: './custom-modal.component.html',
   styleUrls: ['./custom-modal.component.scss'],
-  standalone: false
+  standalone: true,
+  imports: [CommonModule, IonicModule]
 })
 export class CustomModalComponent {
   @Input() title = '';

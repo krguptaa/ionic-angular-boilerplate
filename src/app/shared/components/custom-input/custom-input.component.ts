@@ -24,7 +24,8 @@ export interface ValidationRule {
       multi: true
     }
   ],
-  standalone: false
+  standalone: true,
+  imports: [CommonModule, IonicModule]
 })
 export class CustomInputComponent implements ControlValueAccessor, OnInit, OnDestroy {
   @Input() type: InputType = 'text';

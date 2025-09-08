@@ -28,7 +28,18 @@ export class AuthService {
     private toastService: ToastService,
     private platformUtils: PlatformUtils
   ) {
-    this.initializeAuth();
+    this.initializeStorage();
+  }
+
+  private async initializeStorage(): Promise<void> {
+    try {
+      // Create storage instance
+      await this.storage.create();
+      // Now initialize auth
+      await this.initializeAuth();
+    } catch (error) {
+      console.error('Error initializing storage:', error);
+    }
   }
 
   private async initializeAuth(): Promise<void> {

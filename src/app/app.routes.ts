@@ -1,10 +1,13 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
+import { AppGuard } from './guards/app.guard';
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () => import('./dashboard/dashboard.routes').then(m => m.routes)
+    // Temporarily remove AuthGuard to test circular dependency
+    // canActivate: [AuthGuard] // Protect dashboard route
   },
   {
     path: 'auth',
@@ -13,12 +16,6 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: null as any
+    redirectTo: '/auth/login'
   },
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
