@@ -1,6 +1,6 @@
 .auth-content {
   --background: var(--ion-color-light);
-  --padding-top: var(--ion-safe-area-top);
+  --padding-top: calc(var(--ion-safe-area-top) + 20px);
   --padding-bottom: var(--ion-safe-area-bottom);
   --padding-start: var(--ion-safe-area-left);
   --padding-end: var(--ion-safe-area-right);
@@ -19,22 +19,6 @@
   justify-content: center;
 }
 
-.app-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin-left: 10px;
-}
-
-ion-header {
-  --background: var(--ion-color-primary);
-  --color: var(--ion-color-primary-contrast);
-  padding-top: var(--ion-safe-area-top);
-}
-
-ion-toolbar {
-  --background: var(--ion-color-primary);
-  --color: var(--ion-color-primary-contrast);
-}
 
 .footer-text {
   text-align: center;
