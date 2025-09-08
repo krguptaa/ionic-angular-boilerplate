@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AppGuard } from './guards/app.guard';
 
 export const routes: Routes = [
   {
     path: 'dashboard',
-    loadChildren: () => import('./dashboard/dashboard.routes').then(m => m.routes)
+    loadChildren: () => import('./modules/dashboard/dashboard.routes').then(m => m.routes)
   },
   {
     path: 'auth',
@@ -13,12 +14,13 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
+    canActivate: [AppGuard],
     component: null as any
-  },  {
-    path: 'settings',
-    loadChildren: () => import('./modules/settings/settings.module').then( m => m.SettingsPageModule)
   },
-
+  {
+    path: 'settings',
+    loadChildren: () => import('./modules/settings/settings.module').then(m => m.SettingsPageModule)
+  }
 ];
 
 @NgModule({
