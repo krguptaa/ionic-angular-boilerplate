@@ -4,13 +4,16 @@
   --padding-bottom: var(--ion-safe-area-bottom);
   --padding-start: var(--ion-safe-area-left);
   --padding-end: var(--ion-safe-area-right);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .auth-container {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
-  min-height: calc(100vh - var(--ion-safe-area-top) - var(--ion-safe-area-bottom) - 120px); /* Adjust for header/footer */
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
