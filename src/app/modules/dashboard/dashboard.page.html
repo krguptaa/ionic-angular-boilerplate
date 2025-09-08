@@ -1,0 +1,26 @@
+<ion-content>
+  <div class="dashboard-container">
+    <div class="welcome-section" *ngIf="currentUser">
+      <ion-icon name="person-circle-outline" size="large" color="primary"></ion-icon>
+      <h1>Welcome {{ getUserFullName() }}!</h1>
+      <p>Great to see you back. What would you like to do today?</p>
+    </div>
+
+    <!-- Loading State -->
+    <div class="loading-container" *ngIf="isLoading">
+      <ion-spinner name="crescent"></ion-spinner>
+      <p>Loading...</p>
+    </div>
+
+    <!-- No User State -->
+    <div class="no-user-container" *ngIf="!currentUser && !isLoading">
+      <ion-icon name="person-circle-outline" size="large" color="medium"></ion-icon>
+      <h3>No user data available</h3>
+      <p>Please log in to see your dashboard</p>
+      <ion-button routerLink="/auth/login" fill="solid">
+        <ion-icon name="log-in-outline" slot="start"></ion-icon>
+        Go to Login
+      </ion-button>
+    </div>
+  </div>
+</ion-content>

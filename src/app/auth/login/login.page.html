@@ -1,14 +1,13 @@
-<ion-content [fullscreen]="true" class="ion-padding">
-  <div class="login-container">
-    <!-- Header -->
-    <div class="login-header">
-      <ion-icon name="person-circle-outline" size="large" color="primary"></ion-icon>
-      <h1>Welcome Back</h1>
-      <p>Sign in to your account</p>
-    </div>
+<app-auth-layout>
+  <!-- Header -->
+  <div class="login-header">
+    <ion-icon name="person-circle-outline" size="large" color="primary"></ion-icon>
+    <h1>Welcome Back</h1>
+    <p>Sign in to your account</p>
+  </div>
 
-    <!-- Login Form -->
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+  <!-- Login Form -->
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
       <!-- Email Field -->
       <ion-item class="form-field" [class.ion-invalid]="email?.invalid && email?.touched">
         <ion-label position="floating">Email</ion-label>
@@ -74,16 +73,15 @@
       </ion-button>
     </form>
 
-    <!-- Register Link -->
-    <div class="register-link">
-      <p>Don't have an account?
-        <ion-button
-          fill="clear"
-          size="small"
-          (click)="navigateToRegister()">
-          Sign Up
-        </ion-button>
-      </p>
-    </div>
+  <!-- Register Link -->
+  <div class="register-link">
+    <p>Don't have an account?
+      <ion-button
+        fill="clear"
+        size="small"
+        (click)="navigateToRegister()">
+        Sign Up
+      </ion-button>
+    </p>
   </div>
-</ion-content>
+</app-auth-layout>

@@ -1,0 +1,41 @@
+<app-auth-layout>
+  <!-- PIN Login Header -->
+  <div class="pin-header">
+    <ion-icon name="key-outline" size="large" color="primary"></ion-icon>
+    <h1>Enter PIN</h1>
+    <p>Please enter your 4-digit PIN to continue</p>
+  </div>
+
+  <!-- PIN Input -->
+  <form class="pin-form">
+    <ion-item class="pin-input-item">
+      <ion-input
+        type="password"
+        placeholder="Enter PIN"
+        maxlength="4"
+        inputmode="numeric"
+        pattern="[0-9]*">
+      </ion-input>
+    </ion-item>
+
+    <!-- Login Button -->
+    <ion-button
+      expand="block"
+      type="submit"
+      class="pin-button">
+      <ion-spinner *ngIf="false" name="crescent" slot="start"></ion-spinner>
+      <span>Login</span>
+    </ion-button>
+  </form>
+
+  <!-- Back to Login Link -->
+  <div class="back-link">
+    <p>
+      <ion-button
+        fill="clear"
+        size="small">
+        Back to Login
+      </ion-button>
+    </p>
+  </div>
+</app-auth-layout>

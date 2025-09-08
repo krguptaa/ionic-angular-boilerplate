@@ -1,0 +1,81 @@
+.pin-header {
+  text-align: center;
+  margin-bottom: 2rem;
+
+  ion-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--ion-color-primary);
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    color: var(--ion-color-primary);
+  }
+
+  p {
+    color: var(--ion-color-medium);
+    margin: 0;
+    font-size: 1rem;
+  }
+}
+
+.pin-form {
+  .pin-input-item {
+    margin-bottom: 1rem;
+    --border-radius: 8px;
+    --padding-start: 16px;
+    --inner-padding-end: 16px;
+
+    ion-input {
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 0.5rem;
+    }
+  }
+
+  .pin-button {
+    --border-radius: 8px;
+    --padding-start: 24px;
+    --padding-end: 24px;
+    --padding-top: 16px;
+    --padding-bottom: 16px;
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 1.5rem 0 1rem 0;
+    min-height: 48px;
+  }
+}
+
+.back-link {
+  text-align: center;
+  margin-top: 2rem;
+
+  p {
+    color: var(--ion-color-medium);
+    margin: 0;
+    font-size: 0.875rem;
+  }
+
+  ion-button {
+    --color: var(--ion-color-primary);
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+}
+
+// Responsive design
+@media (max-width: 576px) {
+  .pin-header {
+    h1 {
+      font-size: 1.75rem;
+    }
+
+    ion-icon {
+      font-size: 3rem;
+    }
+  }
+}

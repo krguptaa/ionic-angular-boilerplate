@@ -1,0 +1,54 @@
+.auth-content {
+  --background: var(--ion-color-light);
+  --padding-top: var(--ion-safe-area-top);
+  --padding-bottom: var(--ion-safe-area-bottom);
+  --padding-start: var(--ion-safe-area-left);
+  --padding-end: var(--ion-safe-area-right);
+}
+
+.auth-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  min-height: calc(100vh - var(--ion-safe-area-top) - var(--ion-safe-area-bottom) - 120px); /* Adjust for header/footer */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.app-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+ion-header {
+  --background: var(--ion-color-primary);
+  --color: var(--ion-color-primary-contrast);
+  padding-top: var(--ion-safe-area-top);
+}
+
+ion-toolbar {
+  --background: var(--ion-color-primary);
+  --color: var(--ion-color-primary-contrast);
+}
+
+.footer-text {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--ion-color-medium);
+}
+
+ion-footer {
+  --background: var(--ion-color-light);
+  --color: var(--ion-color-medium);
+  padding-bottom: var(--ion-safe-area-bottom);
+}
+
+// Responsive adjustments
+@media (max-width: 576px) {
+  .auth-container {
+    padding: 16px;
+    max-width: 100%;
+  }
+}

@@ -7,14 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { AuthService } from '../../services/auth.service';
 import { ToastService } from '../../services/toast.service';
 import { ValidationUtils } from '../../utilities';
-import { SharedModule } from '../../shared/shared.module';
+import { AuthLayoutComponent } from '../../auth-containers/auth-layout/auth-layout.component';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, IonicModule, SharedModule]
+  imports: [CommonModule, ReactiveFormsModule, IonicModule, AuthLayoutComponent]
 })
 export class LoginPage implements OnInit {
   loginForm!: FormGroup;

@@ -1,0 +1,61 @@
+<ion-split-pane contentId="main-content">
+  <!-- Menu Sidebar -->
+  <ion-menu contentId="main-content" side="start">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle auto-hide="false" *ngFor="let item of menuItems">
+          <ion-item
+            button
+            [routerLink]="item.url"
+            routerLinkActive="selected"
+            [routerLinkActiveOptions]="{exact: true}"
+            *ngIf="!item.children">
+            <ion-icon [name]="item.icon || 'circle'" slot="start"></ion-icon>
+            <ion-label>{{ item.name }}</ion-label>
+            <ion-badge *ngIf="item.badge" slot="end" color="primary">{{ item.badge }}</ion-badge>
+          </ion-item>
+
+          <!-- Parent item with submenu -->
+          <ion-item *ngIf="item.children" (click)="toggleSubmenu(item.id)">
+            <ion-icon [name]="item.icon || 'circle'" slot="start"></ion-icon>
+            <ion-label>{{ item.name }}</ion-label>
+            <ion-icon [name]="expandedItems[item.id] ? 'chevron-down' : 'chevron-forward'" slot="end"></ion-icon>
+          </ion-item>
+
+          <!-- Submenu items -->
+          <ion-item-group *ngIf="item.children && expandedItems[item.id]">
+            <ion-menu-toggle auto-hide="false" *ngFor="let child of item.children">
+              <ion-item
+                button
+                [routerLink]="child.url"
+                routerLinkActive="selected"
+                [routerLinkActiveOptions]="{exact: true}"
+                class="submenu-item">
+                <ion-icon [name]="child.icon || 'circle'" slot="start"></ion-icon>
+                <ion-label>{{ child.name }}</ion-label>
+                <ion-badge *ngIf="child.badge" slot="end" color="primary">{{ child.badge }}</ion-badge>
+              </ion-item>
+            </ion-menu-toggle>
+          </ion-item-group>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <!-- Main Content -->
+  <ion-router-outlet id="main-content"></ion-router-outlet>
+
+  <!-- Footer -->
+  <ion-footer *ngIf="showFooter">
+    <ion-toolbar>
+      <ion-title size="small" class="footer-text">
+        © 2025 Boilerplate. All rights reserved. v1.0.0
+      </ion-title>
+    </ion-toolbar>
+  </ion-footer>
+</ion-split-pane>

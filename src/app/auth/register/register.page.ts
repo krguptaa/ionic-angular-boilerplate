@@ -7,14 +7,14 @@ import { IonicModule } from '@ionic/angular';
 import { AuthService } from '../../services/auth.service';
 import { ToastService } from '../../services/toast.service';
 import { ValidationUtils } from '../../utilities';
-import { SharedModule } from '../../shared/shared.module';
+import { AuthLayoutComponent } from '../../auth-containers/auth-layout/auth-layout.component';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, IonicModule, SharedModule]
+  imports: [CommonModule, ReactiveFormsModule, IonicModule, AuthLayoutComponent]
 })
 export class RegisterPage implements OnInit {
   registerForm!: FormGroup;
